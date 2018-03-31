@@ -28,5 +28,16 @@ describe 'As a user' do
       expect(page).to have_content(user_2.name)
       expect(page).to_not have_content(review_3.body)
     end
+    it 'and I see the average rating for that book' do
+      book = Book.create!(title: 'Murder on the Orient Express')
+      user_1 = User.create!(name: 'Margaret')
+      user_2 = User.create!(name: 'Ali')
+      review_1 = book.reviews.create!(body: 'great read!', user_id: user_1.id, rating: 5)
+      review_2 = book.reviews.create!(body: 'meh', user_id: user_2.id, rating: 3)
+
+      visit book_path(book)
+
+      expect(page).to have_content('Average Review: 4')
+    end
   end
 end
