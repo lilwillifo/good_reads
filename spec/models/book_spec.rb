@@ -15,7 +15,7 @@ describe Book, type: :model do
       review_1 = book.reviews.create!(body: 'great read!', user_id: user_1.id, rating: 5)
       review_2 = book.reviews.create!(body: 'meh', user_id: user_2.id, rating: 3)
 
-      expect(book.average_review).to eq(4)
+      expect(book.average_rating).to eq(4)
     end
   end
 end

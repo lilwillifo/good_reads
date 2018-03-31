@@ -37,7 +37,7 @@ describe 'As a user' do
 
       visit book_path(book)
 
-      expect(page).to have_content('Average Review: 4')
+      expect(page).to have_content('Average Rating: 4')
     end
   end
 end
