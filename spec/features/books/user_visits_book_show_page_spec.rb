@@ -48,8 +48,10 @@ describe 'As a user' do
 
       visit book_path(book)
 
-      within "header" do
+      within ".high" do
         expect(page).to have_content('Highest Rating: 5')
+        expect(page).to have_content(user_1.name)
+        expect(page).to have_content(review_1.body)
       end
     end
     it 'and I see a header with the lowest rating of the book' do
@@ -61,7 +63,7 @@ describe 'As a user' do
 
       visit book_path(book)
 
-      within "header" do
+      within ".low" do
         expect(page).to have_content('Lowest Rating: 3')
       end
     end

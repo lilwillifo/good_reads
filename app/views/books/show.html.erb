@@ -1,5 +1,10 @@
-<header>
+<header class='high'>
   Highest Rating: <%= @book.highest_rating %>
+  <%= @book.highest_review.body %>
+  <%= @book.highest_review.user.name %>
+</header>
+
+<header class='low'>
   Lowest Rating: <%= @book.lowest_rating %>
 </header>
 

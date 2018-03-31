@@ -12,4 +12,8 @@ class Book < ApplicationRecord
   def lowest_rating
     self.reviews.lowest_rating
   end
+
+  def highest_review
+    self.reviews.find_by(rating: self.highest_rating)
+  end
 end
