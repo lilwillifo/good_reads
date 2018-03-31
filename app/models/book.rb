@@ -8,4 +8,8 @@ class Book < ApplicationRecord
   def highest_rating
     self.reviews.highest_rating
   end
+
+  def lowest_rating
+    self.reviews.lowest_rating
+  end
 end

@@ -20,5 +20,11 @@ describe Review, type: :model do
       review2 = Review.create!(body: 'kjshdfa', rating: 4, user_id: user.id)
       expect(Review.highest_rating).to eq(4)
     end
+    it '.lowest_rating' do
+      user = User.create!(name: 'Bob')
+      review1 = Review.create!(body: 'absdfj', rating: 2, user_id: user.id)
+      review2 = Review.create!(body: 'kjshdfa', rating: 4, user_id: user.id)
+      expect(Review.lowest_rating).to eq(2)
+    end
   end
 end

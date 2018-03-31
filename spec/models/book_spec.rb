@@ -26,5 +26,14 @@ describe Book, type: :model do
 
       expect(book.highest_rating).to eq(5)
     end
+    it '.lowest_rating' do
+      book = Book.create!(title: 'Murder on the Orient Express')
+      user_1 = User.create!(name: 'Margaret')
+      user_2 = User.create!(name: 'Ali')
+      review_1 = book.reviews.create!(body: 'great read!', user_id: user_1.id, rating: 5)
+      review_2 = book.reviews.create!(body: 'meh', user_id: user_2.id, rating: 3)
+
+      expect(book.lowest_rating).to eq(3)
+    end
   end
 end
