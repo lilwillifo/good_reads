@@ -1,3 +1,7 @@
+<header>
+  Highest Rating: <%= @book.highest_rating %>
+</header>
+
 <%= @book.title %>
 <% @book.reviews.each do |review| %>
   <%= review.body %>

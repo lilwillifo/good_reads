@@ -39,5 +39,18 @@ describe 'As a user' do
 
       expect(page).to have_content('Average Rating: 4')
     end
+    it 'and I see a header with the highest rating of the book' do
+      book = Book.create!(title: 'Murder on the Orient Express')
+      user_1 = User.create!(name: 'Margaret')
+      user_2 = User.create!(name: 'Ali')
+      review_1 = book.reviews.create!(body: 'great read!', user_id: user_1.id, rating: 5)
+      review_2 = book.reviews.create!(body: 'meh', user_id: user_2.id, rating: 3)
+
+      visit book_path(book)
+
+      within "header" do
+        expect(page).to have_content('Highest Rating: 5')
+      end
+    end
   end
 end

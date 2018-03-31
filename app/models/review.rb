@@ -4,4 +4,8 @@ class Review < ApplicationRecord
   def self.average_rating
     average(:rating)
   end
+
+  def self.highest_rating
+    maximum(:rating)
+  end
 end
